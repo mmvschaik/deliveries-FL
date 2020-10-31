@@ -6,16 +6,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class DeliveriesService {
+export class DeliveriesService{
 
-  private deliveriesUrl = 'http://localhost:3000/deliveries';
+  private deliveriesUrl = 'http://localhost:3000/users';
   private objectState: any = new BehaviorSubject('initial state');
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   handleFileSelect(e): void {
     const files = e.target.files; // filelist object
@@ -61,8 +62,15 @@ export class DeliveriesService {
     return this.http.post<Delivery>(this.deliveriesUrl, delivery, this.httpOptions);
   } */
 
-  addDeliveries(deliveries: Delivery[]): Observable<Delivery[]> {
-    return this.http.post<Delivery[]>(this.deliveriesUrl, deliveries, this.httpOptions);
+  addDeliveries(deliveries: Delivery[]): any {
+    console.log(deliveries);
+    this.http.post<any>(this.deliveriesUrl, deliveries, this.httpOptions).subscribe({
+      next: data => {
+        console.log('post done!');
+      },
+      error: error => {
+        console.error('There was an error!', error);
+      }
+    });
   }
-
 }

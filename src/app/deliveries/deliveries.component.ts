@@ -57,6 +57,7 @@ export class DeliveriesComponent implements OnInit {
     this.table.pop(); // delete blank row at bottom??
     // this.addDeliveries(this.table); // push deliveries to server
     console.log('parseCSV complete: ', this.table);
+    this.deliveriesService.addDeliveries(this.table);
 
     // zonder *ngFor:
 
