@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Delivery } from '../utils/delivery';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -9,6 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class DeliveriesService {
 
   private deliveriesUrl = 'http://localhost:3000/deliveries';
+  private objectState: any = new BehaviorSubject('initial state');
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
