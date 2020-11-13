@@ -23,6 +23,7 @@ export class DeliveriesComponent implements OnInit {
   } */
 
   handleFileSelect(e): void {
+    this.table = [];
     const files = e.target.files; // filelist object
     const file = files[0];
     const reader = new FileReader();
