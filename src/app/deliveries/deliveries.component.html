@@ -1,13 +1,18 @@
 <div id="fullScreen">
   <form>
     <div class="custom-file mb-3">
-      <input type="file"
-            accept=".csv"
-            (change)="handleFileSelect($event)"
+      <input #fileInput
             class="custom-file-input"
-            id="validatedCustomFile" required/>
+            id="validatedCustomFile"
+            type="file"
+            accept=".csv"
+            (click)="fileInput.value = null"
+            value=""
+            (change)="handleFileSelect($event)"
+            required/>
       <label class="custom-file-label"
-            for="validatedCustomFile">Kies een bestand...</label>
+            data-browse="Bestand kiezen"
+            for="validatedCustomFile">Een csv-bestand kiezen...</label>
     </div>
   </form>
 
