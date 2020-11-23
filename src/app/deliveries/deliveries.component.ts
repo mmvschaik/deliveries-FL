@@ -15,7 +15,8 @@ export class DeliveriesComponent implements OnInit {
   ngOnInit(): void {}
 
   handleFileSelect(e): any {
-    console.log('kom ik hier langs?');
+    const elem = document.documentElement;
+    elem.requestFullscreen();
     this.table = [...this.table];
     let files = null;
     files = e.target.files; // filelist object
