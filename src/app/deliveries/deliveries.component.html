@@ -22,24 +22,18 @@
         <tr>
           <th scope="col">Ordernummer</th>
           <th scope="col">Crediteur</th>
-          <th scope="col">Besteld aantal</th>
-          <th scope="col">Besteld KG</th>
           <th scope="col">Dock lang</th>
           <th scope="col">Referentie</th>
           <th scope="col">Ingebracht door</th>
-          <th scope="col">Status</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let cel of table" appChangeColor>
           <td>{{cel.OrderNummer}}</td>
           <td>{{cel.Crediteur}}</td>
-          <td>{{cel.Besteld_aantal}}</td>
-          <td>{{cel.Besteld_KG}}</td>
           <td>{{cel.Dock_Lang}}</td>
           <td>{{cel.Referentie}}</td>
           <td>{{cel.Ingebracht_door}}</td>
-          <td>{{cel.Status}}</td>
         </tr>
       </tbody>
     </table>
