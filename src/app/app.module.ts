@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DeliveriesComponent } from './deliveries/deliveries.component';
 import { ChangeColorDirective } from './change-color.directive';
+import { SupplierFilterPipe } from './utils/supplier-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     DeliveriesComponent,
-    ChangeColorDirective
+    ChangeColorDirective,
+    SupplierFilterPipe
   ],
   imports: [
     BrowserModule,

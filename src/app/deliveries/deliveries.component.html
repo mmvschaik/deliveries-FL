@@ -28,7 +28,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let cel of table" appChangeColor>
+        <tr *ngFor="let cel of table | supplierFilter:filterArgs" appChangeColor>
           <td>{{cel.OrderNummer}}</td>
           <td>{{cel.Crediteur}}</td>
           <td>{{cel.Dock_Lang}}</td>

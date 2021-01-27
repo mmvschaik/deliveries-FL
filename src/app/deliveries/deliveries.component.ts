@@ -9,6 +9,7 @@ import { Delivery } from '../utils/delivery';
 export class DeliveriesComponent implements OnInit {
 
   table: Delivery[] = [];
+  filterArgs = {Dock_Lang: 'Citrus'};
 
   constructor() {}
 
