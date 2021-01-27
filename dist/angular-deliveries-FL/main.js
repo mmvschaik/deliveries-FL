@@ -54,6 +54,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
 /* harmony import */ var _change_color_directive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../change-color.directive */ "whFa");
+/* harmony import */ var _utils_supplier_filter_pipe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/supplier-filter.pipe */ "XLah");
+
 
 
 
@@ -114,17 +116,19 @@ function DeliveriesComponent_div_7_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "tbody");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](15, DeliveriesComponent_div_7_tr_15_Template, 11, 5, "tr", 8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](16, "supplierFilter");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r1.table);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](16, 1, ctx_r1.table, ctx_r1.filterArgs));
 } }
 class DeliveriesComponent {
     constructor() {
         this.table = [];
+        this.filterArgs = { Dock_Lang: 'Citrus' };
     }
     ngOnInit() { }
     handleFileSelect(e) {
@@ -180,12 +184,12 @@ DeliveriesComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](7, DeliveriesComponent_div_7_Template, 16, 1, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](7, DeliveriesComponent_div_7_Template, 17, 4, "div", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.table && ctx.table.length);
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgForm"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _change_color_directive__WEBPACK_IMPORTED_MODULE_3__["ChangeColorDirective"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2RlbGl2ZXJpZXMvZGVsaXZlcmllcy5jb21wb25lbnQuc2NzcyJ9 */"] });
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgForm"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _change_color_directive__WEBPACK_IMPORTED_MODULE_3__["ChangeColorDirective"]], pipes: [_utils_supplier_filter_pipe__WEBPACK_IMPORTED_MODULE_4__["SupplierFilterPipe"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2RlbGl2ZXJpZXMvZGVsaXZlcmllcy5jb21wb25lbnQuc2NzcyJ9 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](DeliveriesComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -242,6 +246,40 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
 
 /***/ }),
 
+/***/ "XLah":
+/*!***********************************************!*\
+  !*** ./src/app/utils/supplier-filter.pipe.ts ***!
+  \***********************************************/
+/*! exports provided: SupplierFilterPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SupplierFilterPipe", function() { return SupplierFilterPipe; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+class SupplierFilterPipe {
+    transform(table, filter) {
+        if (!table || !filter) {
+            return table;
+        }
+        // filter items array, items which match and return true will be filtered out, false will be kept
+        return table.filter(cel => cel.Dock_Lang.indexOf(filter.Dock_Lang) === -1);
+    }
+}
+SupplierFilterPipe.ɵfac = function SupplierFilterPipe_Factory(t) { return new (t || SupplierFilterPipe)(); };
+SupplierFilterPipe.ɵpipe = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefinePipe"]({ name: "supplierFilter", type: SupplierFilterPipe, pure: true });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SupplierFilterPipe, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"],
+        args: [{
+                name: 'supplierFilter',
+            }]
+    }], null, null); })();
+
+
+/***/ }),
+
 /***/ "ZAI4":
 /*!*******************************!*\
   !*** ./src/app/app.module.ts ***!
@@ -258,6 +296,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "Sy1n");
 /* harmony import */ var _deliveries_deliveries_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./deliveries/deliveries.component */ "PRuq");
 /* harmony import */ var _change_color_directive__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./change-color.directive */ "whFa");
+/* harmony import */ var _utils_supplier_filter_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils/supplier-filter.pipe */ "XLah");
+
 
 
 
@@ -274,7 +314,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
         _deliveries_deliveries_component__WEBPACK_IMPORTED_MODULE_4__["DeliveriesComponent"],
-        _change_color_directive__WEBPACK_IMPORTED_MODULE_5__["ChangeColorDirective"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+        _change_color_directive__WEBPACK_IMPORTED_MODULE_5__["ChangeColorDirective"],
+        _utils_supplier_filter_pipe__WEBPACK_IMPORTED_MODULE_6__["SupplierFilterPipe"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
@@ -282,7 +323,8 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                 declarations: [
                     _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
                     _deliveries_deliveries_component__WEBPACK_IMPORTED_MODULE_4__["DeliveriesComponent"],
-                    _change_color_directive__WEBPACK_IMPORTED_MODULE_5__["ChangeColorDirective"]
+                    _change_color_directive__WEBPACK_IMPORTED_MODULE_5__["ChangeColorDirective"],
+                    _utils_supplier_filter_pipe__WEBPACK_IMPORTED_MODULE_6__["SupplierFilterPipe"]
                 ],
                 imports: [
                     _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
