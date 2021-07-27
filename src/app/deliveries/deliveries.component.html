@@ -1,18 +1,14 @@
 <div id="fullScreen">
-  <form>
-    <div class="custom-file mb-3">
-      <input #fileInput
-            class="custom-file-input"
-            id="validatedCustomFile"
-            type="file"
-            accept=".csv"
-            (click)="fileInput.value = null"
-            value=""
-            (change)="handleFileSelect($event)"
-            required/>
-      <label class="custom-file-label"
-            data-browse="Bestand kiezen"
-            for="validatedCustomFile">Een csv-bestand kiezen...</label>
+    <form>
+        <div class="row">
+            <div class="col-md-auto">
+                <h1>Leveringen Fruity Line BV</h1>
+            </div>
+            <div class="custom-file mb-3 col">
+                <input #fileInput class="custom-file-input" id="validatedCustomFile" type="file" accept=".csv" (click)="fileInput.value = null" value="" (change)="handleFileSelect($event)" required />
+                <label class="custom-file-label" data-browse="Bestand kiezen" for="validatedCustomFile">Een csv-bestand kiezen...</label
+        >
+      </div>
     </div>
   </form>
 
@@ -28,12 +24,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let cel of table | supplierFilter:filterArgs" appChangeColor>
-          <td>{{cel.OrderNummer}}</td>
-          <td>{{cel.Crediteur}}</td>
-          <td>{{cel.Dock_Lang}}</td>
-          <td>{{cel.Referentie}}</td>
-          <td>{{cel.Ingebracht_door}}</td>
+        <tr
+          *ngFor="let cel of table | supplierFilter: filterArgs"
+          appChangeColor
+        >
+          <td>{{ cel.OrderNummer }}</td>
+          <td>{{ cel.Crediteur }}</td>
+          <td>{{ cel.Dock_Lang }}</td>
+          <td>{{ cel.Referentie }}</td>
+          <td>{{ cel.Ingebracht_door }}</td>
         </tr>
       </tbody>
     </table>

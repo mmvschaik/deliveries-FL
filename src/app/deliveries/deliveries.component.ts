@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Delivery } from '../utils/delivery';
+import { DeliveriesService } from '../utils/deliveries.service';
 
 @Component({
   selector: 'app-deliveries',
@@ -11,48 +12,24 @@ export class DeliveriesComponent implements OnInit {
   table: Delivery[] = [];
   filterArgs = {Dock_Lang: 'Citrus'};
 
-  constructor() {}
+  constructor(public deliveriesService: DeliveriesService) {}
 
   ngOnInit(): void {}
 
   handleFileSelect(e): any {
     const elem = document.documentElement;
-    elem.requestFullscreen();
+    elem.requestFullscreen(); // fullscreen mode
     this.table = [...this.table];
     let files = null;
     files = e.target.files; // filelist object
     const file = files[0];
     const reader = new FileReader();
-    reader.readAsText(file);
+    reader.readAsText(file); // read content of file as text string
     reader.onload = (event: any) => {
       const csv = event.target.result; // content of csv file
-      this.parseCsv(csv);
+      this.deliveriesService.parseCsv(csv); // parse csv file
+      this.table = this.deliveriesService.table; // update table
     };
-  }
-
-  parseCsv(csv): void {
-    const tableData = [];
-    const rows = csv.split(/\n|\r\n/); // split into rows
-    const headers = rows.shift() // get headers
-      .split(' ')
-      .join('_') // get rid of spaces in headers
-      .split(','); // split headers
-    for (let i = 0; i < rows.length; i++) {
-      const dataWithComma = rows[i] // get data rows
-        .replace(/\".*?\"/g, match => match.replace(/,/g, ';')) // get rid of double quoted comma
-        .split(','); // split data rows
-      const dataRows = tableData[i] = {};
-      for (let j = 0; j < dataWithComma.length; j++) {
-        const dataVal = dataWithComma[j]
-          .replace(/;/g, ',') // get comma back
-          .replace(/\"/g, ''); // get rid of double quotes
-        const dataHead = headers[j]; // index headers
-        dataRows[dataHead] = dataVal; // make key:value pairs
-      }
-    }
-    this.table = [...tableData];
-    this.table.pop(); // delete blank row at bottom??
-    console.log('parseCSV complete: ', this.table);
   }
 }
 

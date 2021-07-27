@@ -1,10 +1,10 @@
 export interface Delivery {
-  Dock_Lang: any;
-  Crediteur: any;
-  OrderNummer: any;
-  Status: any;
-  Ingebracht_door: any;
-  Referentie?: any;
-  Besteld_aantal: any;
-  Besteld_KG: any;
+  Dock_Lang: string;
+  Crediteur: string;
+  OrderNummer: string;
+  Status: string;
+  Ingebracht_door: string;
+  Referentie?: string;
+  Besteld_aantal: string;
+  Besteld_KG: string;
 }
