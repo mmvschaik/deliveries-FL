@@ -10,7 +10,7 @@ export class DeliveriesService {
 
   constructor() { }
 
-  parseCsv(csv): Delivery[] {
+  parseCsv(csv: any): Delivery[] {
     const tableData = [];
     const rows = csv.split(/\n|\r\n/); // split into rows
     const headers = rows.shift() // get headers
